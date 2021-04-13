@@ -67,7 +67,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 
-  <script type="text/javascript" src="data.json"></script>
   <script type="text/javascript">
     const QRans = new Vue({
       el: "#QRans",
@@ -81,10 +80,14 @@
           .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
           .then(response => {
             this.answers = response.data.answers;
+            console.log(this.answers);
             for(answer of this.answers){
-              answer.img ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
+              console.log(answer);
+              console.log(answer.image);
+              answer.image ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
               answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
             }
+            
           })
           .catch(err => {
             console.log(err);
