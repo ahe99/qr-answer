@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>QRanswer</title>
+    <style>
+      @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+      *{
+          margin:0px;
+          font-family: 'Noto Sans TC', sans-serif;
+      }
+      .container{
+          width: 100vw;
+          height: 100vh;
+          background-color: rgb(209, 245, 144);
+      }
+      .ans{
+          width:100vw;
+          height: 100vh; 
+      }
+      .anstitle{
+          padding: 1%;
+          text-align: center;
+      }
+      .ansdesc{
+          padding: 1%;
+          text-align: center;
+      }
+      img{
+        margin:auto;
+        max-width: 80%;
+        display: block;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="QRans" class="container">
+      <!---->
+      <div class="ans" :id="answers.name" vfor="(answer,index) in answers" :key="index" >
+        <hr>  
+        <h1 class="anstitle">{{answers.name}}</h1>
+        <hr>
+        <img :src="" alt="無圖">
+        <p class="ansdesc">{{answers.description}}</p>
+        <audio :src="answers.audio" controls>
+          <h3>無音訊</h3>
+        </audio>
+        <hr>
+      </div>
+      
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript">
+      const QRans = new Vue({
+        el: "#QRans",
+        data: {
+          answers:[]
+        }  
+        ,
+        methods: {
+          getAns() {
+            axios
+            .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
+            .then(response => {
+              this.answers = response.answers;
+              for(answer in this.answers){
+                answer.img ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img
+                answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img
+              }
+            })
+            .catch(err => {
+              console.log(err);
+              alert("oops!Something went wrong!");
+            });
+          }
+        },
+        mounted: function() {
+          this.getAns();
+        }
+      });
+      </script>
+  </html>
