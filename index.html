@@ -83,13 +83,9 @@
             .then(response => {
               let answers = response.data.answers;
               for(answer of answers){
-                console.log(answer);
-                console.log(answers);
-                
                 answer.image ='https://raw.githubusercontent.com/ahe99/QRanswer/master/assets/' + answer.image;
                 answer.audio ='https://raw.githubusercontent.com/ahe99/QRanswer/master/assets/' + answer.audio;
                 this.answers.push(answer);
-                console.log(this.answers);
               }
             })
             .catch(err => {
@@ -97,15 +93,9 @@
               alert("oops!Something went wrong!");
             });
           },
-          con(){
-            console.log(this);
-            console.log(this.answers);
-            console.log("123");
-          }
         },
         mounted: function(){
           this.getAns();
-          this.con();
         }
       });
       </script>
