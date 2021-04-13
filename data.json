@@ -1,8 +1,9 @@
 {
-  "answers": [
+  "answers": 
+  [
     {
       "name": "貓",
-      "description": "大家好！",
+      "description": "我是喵喵！",
       "image": "cat.jpg",
       "audio": "cat.mp3"
     }

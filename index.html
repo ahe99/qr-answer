@@ -82,8 +82,8 @@
           .then(response => {
             this.answers = response.answers;
             for(answer in this.answers){
-              answer.img ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img
-              answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img
+              answer.img ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
+              answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
             }
           })
           .catch(err => {
