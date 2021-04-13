@@ -16,7 +16,7 @@
         {
             "answers": [
                 {
-                    "name": "貓",
+                    "name": "貓咪",
                     "engName":"Cat",
                     "desciption": "我是喵喵！",
                     "image":"cat.jpg",

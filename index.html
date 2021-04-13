@@ -5,43 +5,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      />
-    -->
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>QRanswer</title>
     <style>
       @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
       *{
           margin:0px;
+          padding: 0px;
           font-family: 'Noto Sans TC', sans-serif;
           background-color: rgb(209, 245, 144);
+          overflow-y: scroll;
+          overflow-x: hidden;
       }
       .ans{
           width:100vw;
-          height: 75vh;
-          padding-top: 25vh;
-      }
-      
-      .anstitle{
-          padding: 1%;
-          text-align: center;
-      }
-      .ansdesc{
-          padding: 1%;
+          height: 85vh;
+          padding-top: 15vh;
           text-align: center;
       }
       img{
         margin:auto;
-        max-width: 80%;
+        max-width: 80vw;
         display: block;
       }
       audio{
         margin: auto;
         display: block;
+      }
+      p{
+        font-size: 150%;
       }
   </style>
   </head>
@@ -49,22 +41,21 @@
     <div id="QRans" class="QRans container">
       <div class="ans" :id="answer.engName" 
           v-for="(answer, index) in answers" :key="index" >
-          <hr>  
-          <h1 class="anstitle">{{answer.name + answer.engName}}</h1>
           <hr>
+          <br>  
+          <h1 class="anstitle">{{answer.name + " "+ answer.engName}}</h1>
+          <br>
+          <hr>
+          <br>
           <img :src="answer.image" alt="">
           <p class="ansdesc">{{answer.description}}</p>
           <audio :src="answer.audio" controls>
             <h3>..</h3>
           </audio>
+          <br>
           <hr>
       </div>
     </div>
-    <!--
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 
