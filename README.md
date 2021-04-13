@@ -1,11 +1,44 @@
-# Youtube Hot Videos
+# QRanswer
 
-一個展示 Youtube 不同分類之發燒影片的頁面
+課程專案
+掃描紙本QR code會進入此頁面, 主要設計給手機端
 
-[---> LINK <---](https://ahe99.github.io/YoutubeHotVideos)
+[---> LINK <---](https://ahe99.github.io/QRanswer)
 
-Vue 資料驅動頁面
+要新增資料如:
 
-Bootstrap4 做 RWD 排版
+* 新增圖片至`assets\img`
 
-axios 串接 Youtube API 接收發燒影片資訊,
+* 新增音訊至`assets\audio`
+
+* 開啟`data.json`
+
+        {
+            "answers": [
+                {
+                    "name": "貓",
+                    "desciption": "我是喵喵！",
+                    "image":"cat.jpg",
+                    "audio":"cat.mp3"
+                }
+            ]
+        }
+
+* 更改`data.json`如下
+
+        {
+            "answers": [
+                {
+                    "name": "貓",
+                    "desciption": "我是喵喵！",
+                    "image":"cat.jpg",
+                    "audio":"cat.mp3"
+                },
+                {
+                    "name": "狗",
+                    "desciption": "我是旺旺！",
+                    "image":"dog.jpg",
+                    "audio":"dog.mp3"
+                }
+            ]
+        }
