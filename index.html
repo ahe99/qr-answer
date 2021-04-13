@@ -41,63 +41,72 @@
         max-width: 80%;
         display: block;
       }
+      audio{
+        margin: auto;
+        display: block;
+      }
   </style>
   </head>
   <body>
-    <div id="QRans" class="container">
-      <!---->
-      <div class="ans" :id="answers.name" vfor="(answer,index) in answers" :key="index" >
-        <hr>  
-        <h1 class="anstitle">{{answers.name}}</h1>
-        <hr>
-        <img :src="" alt="無圖">
-        <p class="ansdesc">{{answers.description}}</p>
-        <audio :src="answers.audio" controls>
-          <h3>無音訊</h3>
-        </audio>
-        <hr>
+    <div id="QRans" class="QRans container">
+      <div class="ans" :id="answer.name" 
+          v-for="(answer, index) in answers" :key="index" >
+          <hr>  
+          <h1 class="anstitle">{{answer.name}}</h1>
+          <hr>
+          <img :src="answer.image" alt="">
+          <p class="ansdesc">{{answer.description}}</p>
+          <audio :src="answer.audio" controls>
+            <h3>..</h3>
+          </audio>
+          <hr>
       </div>
-      
-  </div>
-  <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    </div>
+    <!--
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 
-  <script type="text/javascript">
-    const QRans = new Vue({
-      el: "#QRans",
-      data: {
-        answers:[]
-      }  
-      ,
-      methods: {
-        getAns() {
-          axios
-          .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
-          .then(response => {
-            this.answers = response.data.answers;
+    <script type="text/javascript">
+      const QRans = new Vue({
+        el: "#QRans",
+        data: {
+          answers:[]
+        },
+        methods: {
+          getAns() {
+            axios
+            .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
+            .then(response => {
+              let answers = response.data.answers;
+              for(answer of answers){
+                console.log(answer);
+                console.log(answers);
+                
+                answer.image ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + answer.image;
+                answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + answer.audio;
+                this.answers.push(answer);
+                console.log(this.answers);
+              }
+            })
+            .catch(err => {
+              console.log(err);
+              alert("oops!Something went wrong!");
+            });
+          },
+          con(){
+            console.log(this);
             console.log(this.answers);
-            for(answer of this.answers){
-              console.log(answer);
-              console.log(answer.image);
-              answer.image ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
-              answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
-            }
-            
-          })
-          .catch(err => {
-            console.log(err);
-            alert("oops!Something went wrong!");
-          });
+            console.log("123");
+          }
+        },
+        mounted: function(){
+          this.getAns();
+          this.con();
         }
-      },
-      mounted: function() {
-        this.getAns();
-      }
-    });
-    </script>
+      });
+      </script>
   </html>
