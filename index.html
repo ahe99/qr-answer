@@ -49,10 +49,10 @@
   </head>
   <body>
     <div id="QRans" class="QRans container">
-      <div class="ans" :id="answer.name" 
+      <div class="ans" :id="answer.engName" 
           v-for="(answer, index) in answers" :key="index" >
           <hr>  
-          <h1 class="anstitle">{{answer.name}}</h1>
+          <h1 class="anstitle">{{answer.name + answer.engName}}</h1>
           <hr>
           <img :src="answer.image" alt="">
           <p class="ansdesc">{{answer.description}}</p>

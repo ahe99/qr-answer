@@ -5,7 +5,7 @@
 
 [---> LINK <---](https://ahe99.github.io/QRanswer)
 
-要新增資料如:
+新增資料如:
 
 * 新增圖片至`assets\img`
 
@@ -17,6 +17,7 @@
             "answers": [
                 {
                     "name": "貓",
+                    "engName":"Cat",
                     "desciption": "我是喵喵！",
                     "image":"cat.jpg",
                     "audio":"cat.mp3"
@@ -29,16 +30,20 @@
         {
             "answers": [
                 {
-                    "name": "貓",
+                    "name": "貓咪",
+                    "engName":"Cat",
                     "desciption": "我是喵喵！",
                     "image":"cat.jpg",
                     "audio":"cat.mp3"
                 },
                 {
-                    "name": "狗",
+                    "name": "狗狗",
+                    "engName":"Dog",
                     "desciption": "我是旺旺！",
                     "image":"dog.jpg",
                     "audio":"dog.mp3"
                 }
             ]
         }
+
+* `https://ahe99.github.io/QRanswer/#engName` 修改`engName`丟進[QRcode產生器](http://www.quickmark.com.tw/cht/qrcode-datamatrix-generator/default.asp?qrLink)
