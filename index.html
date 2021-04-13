@@ -80,8 +80,8 @@
           axios
           .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
           .then(response => {
-            this.answers = response.answers;
-            for(answer in this.answers){
+            this.answers = response.data.answers;
+            for(answer of this.answers){
               answer.img ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
               answer.audio ='https://raw.githubusercontent/ahe99/QRanswer/blob/master/assets/' + this.answers.img;
             }
