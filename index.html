@@ -13,7 +13,7 @@
           margin:0px;
           padding: 0px;
           font-family: 'Noto Sans TC', sans-serif;
-          background-color: rgb(209, 245, 144);
+          background-color: rgb(192, 224, 133);
       }
       body{
           overflow-y: scroll;
@@ -25,6 +25,18 @@
           padding-top: 15vh;
           text-align: center;
       }
+      .btn{
+        display: none;
+      }
+      .start{
+        position: fixed;
+        background-color: rgb(214, 150, 105);
+        z-index: 10;
+      }
+      .start *{
+        background-color: rgb(214, 150, 105);
+      }
+      
       img{
         margin:auto;
         max-width: 80vw;
@@ -38,11 +50,25 @@
       p{
         font-size: 150%;
       }
+      
+
   </style>
   </head>
   <body>
     <div id="QRans" class="QRans container">
-      <div class="ans" :id="answer.engName" 
+      <div class="ans start" @click="toAns()">
+        <hr>
+        <br>  
+        <h1 class="anstitle">答案是？</h1>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <img src="assets/click.gif" alt="">
+      </div>
+    
+      <div class="ans" :ref="answer.engName" :id="answer.engName" 
           v-for="(answer, index) in answers" :key="index" >
           <hr>
           <br>  
@@ -61,7 +87,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
-
+    
     <script type="text/javascript">
       const QRans = new Vue({
         el: "#QRans",
@@ -70,13 +96,16 @@
         },
         methods: {
           getAns() {
+            let url = 'https://raw.githubusercontent.com/ahe99/QRanswer/master/'
             axios
-            .get('https://raw.githubusercontent.com/ahe99/QRanswer/master/data.json')
+            .get(url + 'data.json')
             .then(response => {
               let answers = response.data.answers;
-              for(answer of answers){
-                answer.image ='https://raw.githubusercontent.com/ahe99/QRanswer/master/assets/' + answer.image;
-                answer.audio ='https://raw.githubusercontent.com/ahe99/QRanswer/master/assets/' + answer.audio;
+              for([index, answer] of answers.entries() ){
+                answer.image = url + 'assets/' + answer.image;
+                answer.audio = url + 'assets/' + answer.audio;
+                answer.tag = '#' + answer.engName;
+                answer.id = index;
                 this.answers.push(answer);
               }
             })
@@ -85,10 +114,16 @@
               alert("oops!Something went wrong!");
             });
           },
+          toAns() {
+            document.querySelector(".start").style.display="none";
+            document.querySelector(location.hash).scrollIntoView();
+          },
+        },
+        created: function(){
+          this.getAns();
         },
         mounted: function(){
-          this.getAns();
-        }
+        },
       });
       </script>
   </html>
