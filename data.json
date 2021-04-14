@@ -32,15 +32,15 @@
       "name": "雞蛋",
       "engName":"Egg",
       "description": "",
-      "image": "egg.jpg",
-      "audio": "egg.mp3"
+      "image": "Egg.jpg",
+      "audio": "Egg.mp3"
     },
     {
       "name": "魚",
       "engName":"Fish",
       "description": "",
-      "image": "fish.jpg",
-      "audio": "fish.mp3"
+      "image": "Fish.jpg",
+      "audio": "Fish.mp3"
     },
     {
       "name": "綠色",
