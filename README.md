@@ -25,8 +25,8 @@
                     "name": "貓咪",
                     "engName":"Cat",
                     "description": "我是喵喵！",
-                    "image":"cat.jpg",
-                    "audio":"cat.mp3"
+                    "image":"Cat.jpg",
+                    "audio":"Cat.mp3"
                 }
             ]
         }
@@ -39,15 +39,15 @@
                     "name": "貓咪",
                     "engName":"Cat",
                     "description": "我是喵喵！",
-                    "image":"cat.jpg",
-                    "audio":"cat.mp3"
+                    "image":"Cat.jpg",
+                    "audio":"Cat.mp3"
                 },
                 {
                     "name": "狗狗",
                     "engName":"Dog",
                     "description": "我是旺旺！",
-                    "image":"dog.jpg",
-                    "audio":"dog.mp3"
+                    "image":"Dog.jpg",
+                    "audio":"Dog.mp3"
                 }
             ]
         }
