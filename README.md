@@ -6,7 +6,7 @@
 [---> LINK <---](https://ahe99.github.io/QRanswer)
 
 > 在json裡找到單字的engName
-> `https://ahe99.github.io/QRanswer/#engName` 
+> `https://ahe99.github.io/QRanswer/#engName`
 > 修改上面engName丟進[QRcode產生器](http://www.quickmark.com.tw/cht/qrcode-datamatrix-generator/default.asp?qrLink), 並印出來作為單字卡
 
 ---
