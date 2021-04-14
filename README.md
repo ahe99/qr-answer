@@ -5,6 +5,12 @@
 
 [---> LINK <---](https://ahe99.github.io/QRanswer)
 
+> 在json裡找到單字的engName
+> `https://ahe99.github.io/QRanswer/#engName` 
+> 修改上面engName丟進[QRcode產生器](http://www.quickmark.com.tw/cht/qrcode-datamatrix-generator/default.asp?qrLink), 並印出來作為單字卡
+
+---
+
 新增資料如:
 
 * 新增圖片至`assets\img`
@@ -18,7 +24,7 @@
                 {
                     "name": "貓咪",
                     "engName":"Cat",
-                    "desciption": "我是喵喵！",
+                    "description": "我是喵喵！",
                     "image":"cat.jpg",
                     "audio":"cat.mp3"
                 }
@@ -32,18 +38,18 @@
                 {
                     "name": "貓咪",
                     "engName":"Cat",
-                    "desciption": "我是喵喵！",
+                    "description": "我是喵喵！",
                     "image":"cat.jpg",
                     "audio":"cat.mp3"
                 },
                 {
                     "name": "狗狗",
                     "engName":"Dog",
-                    "desciption": "我是旺旺！",
+                    "description": "我是旺旺！",
                     "image":"dog.jpg",
                     "audio":"dog.mp3"
                 }
             ]
         }
 
-* `https://ahe99.github.io/QRanswer/#engName` 修改`engName`丟進[QRcode產生器](http://www.quickmark.com.tw/cht/qrcode-datamatrix-generator/default.asp?qrLink)
+* 發PR

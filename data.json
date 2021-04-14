@@ -1,18 +1,60 @@
 {
   "answers": [
     {
-      "name": "貓咪",
-      "engName":"Cat",
-      "description": "我是喵喵！",
-      "image": "cat.jpg",
-      "audio": "cat.mp3"
+      "name": "蘋果",
+      "engName":"Apple",
+      "description": "",
+      "image": "Apple.jpg",
+      "audio": "Apple.mp3"
+    },
+    {
+      "name": "書本",
+      "engName":"Book",
+      "description": "",
+      "image": "Book.jpg",
+      "audio": "Book.mp3"
+    },
+    {
+      "name": "車子",
+      "engName":"Car",
+      "description": "",
+      "image": "Car.jpg",
+      "audio": "Car.mp3"
     },
     {
       "name": "狗狗",
       "engName":"Dog",
-      "description": "我是旺旺！",
+      "description": "",
       "image": "dog.jpg",
       "audio": "dog.mp3"
+    },
+    {
+      "name": "雞蛋",
+      "engName":"Egg",
+      "description": "",
+      "image": "egg.jpg",
+      "audio": "egg.mp3"
+    },
+    {
+      "name": "魚",
+      "engName":"Fish",
+      "description": "",
+      "image": "fish.jpg",
+      "audio": "fish.mp3"
+    },
+    {
+      "name": "綠色",
+      "engName":"Green",
+      "description": "",
+      "image": "Green.jpg",
+      "audio": "Green.mp3"
+    },
+    {
+      "name": "帽子",
+      "engName":"Hat",
+      "description": "",
+      "image": "Hat.jpg",
+      "audio": "Hat.mp3"
     }
   ]
 }
