@@ -59,8 +59,8 @@
         font-size: 150%;
       }
       .openCam{
-        color: tomato;
-        border:2px tomato solid;
+        color: royalblue;
+        border:2px royalblue solid;
         text-decoration: none;
         font-size: medium;
       }
@@ -88,10 +88,11 @@
         <img src="assets/click.gif" alt="">
       </div>
       
-      <div class="ans campage" v-if="cam">
-        <video id="preview" autoplay="autoplay"></video>
+      <div class="ans campage" v-show="cam">
+
+        <video id="preview" autoplay playsinline controls></video>
         <br>
-        <a class="openCam"  @click="redirect(window.location)">取消掃描</a>
+        <a class="openCam"  @click="">取消掃描</a>
       </div>
 
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
@@ -156,6 +157,7 @@
           },
           toScan(){
             this.cam = true;
+            console.log(document.getElementById('preview'));
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
             scanner.addListener('scan', function (content) {
               console.log(content);
@@ -175,6 +177,9 @@
             window.location.replace(c);
           }
         },
+        backAns() {
+            this.cam = false;
+          },
         created: function(){
           this.voc = location.hash;
           this.getAns();
