@@ -6,7 +6,7 @@
 
 Vue單頁模板、基於webRTC的instascan.js在前端完成掃描QR code
 
-[---> LINK <---](https://ahe99.github.io/QRanswer/#Apple)
+[---> LINK <---](https://ahe99.github.io/QRanswer/#apple)
 
 > 在json裡找到單字的engName
 >
