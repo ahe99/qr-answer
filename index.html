@@ -88,8 +88,12 @@
         <img src="assets/click.gif" alt="">
       </div>
       
-      <video v-if="cam" id="preview" autoplay="autoplay"></video>
-      
+      <video id="preview" autoplay="autoplay"></video>
+      <div class="ans campage" v-if="cam">
+        <br>
+        <a class="openCam"  @click="redirect(window.location)">取消掃描</a>
+      </div>
+
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
           v-for="(answer, index) in answers" v-if="answer.show" :key="index" >
           <hr>
