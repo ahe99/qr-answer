@@ -87,12 +87,9 @@
         <br>
         <img src="assets/click.gif" alt="">
       </div>
-
-      <div class="ans campage" v-if="cam">
-        <video id="preview" autoplay="autoplay"></video>
-        <a class="openCam" href="#" @click="redirect(window.location)">取消掃描</a>
-      </div>
-
+      
+      <video v-if="cam" id="preview" autoplay="autoplay"></video>
+      
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
           v-for="(answer, index) in answers" v-if="answer.show" :key="index" >
           <hr>
@@ -109,7 +106,7 @@
           </audio>
           <br>
           <hr>
-          <a class="openCam" href="#" @click="toScan()">開啟掃描</a>
+          <a class="openCam" @click="toScan()">開啟掃描</a>
       </div>
 
       
