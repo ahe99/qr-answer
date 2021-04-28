@@ -58,7 +58,7 @@
       p{
         font-size: 150%;
       }
-      .openCam{
+      .cam{
         color: royalblue;
         border:2px royalblue solid;
         text-decoration: none;
@@ -92,7 +92,7 @@
 
         <video id="preview" autoplay playsinline controls></video>
         <br>
-        <a class="openCam"  @click="">取消掃描</a>
+        <a class="cam"  @click="backAns()">取消掃描</a>
       </div>
 
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
@@ -111,12 +111,11 @@
           </audio>
           <br>
           <hr>
-          <a class="openCam" @click="toScan()">開啟掃描</a>
+          <a class="cam" @click="toScan()">開啟掃描</a>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     
     <script type="text/javascript">
@@ -143,7 +142,6 @@
                 answer.show = this.voc === answer.tag ? true : false;
                 this.answers.push(answer);
               }
-              console.log(this.voc);
             })
             .catch(err => {
               console.log(err);
@@ -157,10 +155,8 @@
           },
           toScan(){
             this.cam = true;
-            console.log(document.getElementById('preview'));
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
             scanner.addListener('scan', function (content) {
-              console.log(content);
               redirect(content);
             });
             Instascan.Camera.getCameras().then(function (cameras) {
@@ -179,12 +175,11 @@
         },
         backAns() {
             this.cam = false;
-          },
+        },
         created: function(){
           this.voc = location.hash;
           this.getAns();
         },
-        mounted: function(){},
       });
       </script>
   </html>
