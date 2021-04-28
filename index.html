@@ -54,10 +54,12 @@
         font-size: small;
       }
       .scanpage{
+        top:0;
         width: 100vw;
         height: 100vh;
-
+        z-index: 10;
         position: fixed;
+        background-color: rgb(214, 150, 105);
       }
   </style>
   </head>
@@ -78,7 +80,7 @@
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
           v-for="(answer, index) in answers" :key="index" >
           <hr>
-          <br>  
+          <br>
           <h1 class="anstitle">{{answer.name + " "+ answer.engName}}</h1>
           <br>
           <hr>
@@ -137,6 +139,7 @@
           },
           toScan(){
             this.scan = true;
+            
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
             scanner.addListener('scan', function (content) {
               console.log(content);
