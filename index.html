@@ -88,8 +88,8 @@
         <img src="assets/click.gif" alt="">
       </div>
       
-      <video id="preview" autoplay="autoplay"></video>
       <div class="ans campage" v-if="cam">
+        <video id="preview" autoplay="autoplay"></video>
         <br>
         <a class="openCam"  @click="redirect(window.location)">取消掃描</a>
       </div>
@@ -112,12 +112,10 @@
           <hr>
           <a class="openCam" @click="toScan()">開啟掃描</a>
       </div>
-
-      
-      
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     
     <script type="text/javascript">
