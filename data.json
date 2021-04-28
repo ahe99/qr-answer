@@ -2,59 +2,43 @@
   "answers": [
     {
       "name": "蘋果",
-      "engName":"Apple",
-      "description": "",
-      "image": "Apple.jpg",
-      "audio": "Apple.mp3"
+      "engName":"apple",
+      "description": ""
     },
     {
       "name": "書本",
-      "engName":"Book",
-      "description": "",
-      "image": "Book.jpg",
-      "audio": "Book.mp3"
+      "engName":"book",
+      "description": ""
     },
     {
       "name": "車子",
-      "engName":"Car",
-      "description": "",
-      "image": "Car.jpg",
-      "audio": "Car.mp3"
+      "engName":"car",
+      "description": ""
     },
     {
       "name": "狗狗",
-      "engName":"Dog",
-      "description": "",
-      "image": "dog.jpg",
-      "audio": "dog.mp3"
+      "engName":"dog",
+      "description": ""
     },
     {
       "name": "雞蛋",
-      "engName":"Egg",
-      "description": "",
-      "image": "Egg.jpg",
-      "audio": "Egg.mp3"
+      "engName":"egg",
+      "description": ""
     },
     {
       "name": "魚",
-      "engName":"Fish",
-      "description": "",
-      "image": "Fish.jpg",
-      "audio": "Fish.mp3"
+      "engName":"fish",
+      "description": ""
     },
     {
       "name": "綠色",
-      "engName":"Green",
-      "description": "",
-      "image": "Green.jpg",
-      "audio": "Green.mp3"
+      "engName":"green",
+      "description": ""
     },
     {
       "name": "帽子",
-      "engName":"Hat",
-      "description": "",
-      "image": "Hat.jpg",
-      "audio": "Hat.mp3"
+      "engName":"hat",
+      "description": ""
     }
   ]
 }

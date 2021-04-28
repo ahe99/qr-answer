@@ -16,9 +16,9 @@ Vue單頁模板、基於webRTC的instascan.js在前端完成掃描QR code
 
 新增資料如:
 
-* 新增圖片至`assets\img`
+* 新增圖片至`assets\img`副檔名限制`.jpg` ex.`dog.jpg`
 
-* 新增音訊至`assets\audio`
+* 新增音訊至`assets\audio`副檔名限制`.mp3` ex.`dog.mp3`
 
 * 開啟`data.json`
 
@@ -26,10 +26,8 @@ Vue單頁模板、基於webRTC的instascan.js在前端完成掃描QR code
             "answers": [
                 {
                     "name": "貓咪",
-                    "engName":"Cat",
-                    "description": "我是喵喵！",
-                    "image":"Cat.jpg",
-                    "audio":"Cat.mp3"
+                    "engName":"cat",
+                    "description": "喵喵！",
                 }
             ]
         }
@@ -40,17 +38,13 @@ Vue單頁模板、基於webRTC的instascan.js在前端完成掃描QR code
             "answers": [
                 {
                     "name": "貓咪",
-                    "engName":"Cat",
-                    "description": "我是喵喵！",
-                    "image":"Cat.jpg",
-                    "audio":"Cat.mp3"
+                    "engName":"cat",
+                    "description": "喵喵！",
                 },
                 {
                     "name": "狗狗",
-                    "engName":"Dog",
-                    "description": "我是旺旺！",
-                    "image":"Dog.jpg",
-                    "audio":"Dog.mp3"
+                    "engName":"dog",
+                    "description": "旺旺！",
                 }
             ]
         }

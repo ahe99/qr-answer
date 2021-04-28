@@ -135,11 +135,13 @@
             .then(response => {
               let answers = response.data.answers;
               for([index, answer] of answers.entries() ){
-                answer.image = url + 'assets/' + answer.image;
-                answer.audio = url + 'assets/' + answer.audio;
+                answer.image = url + 'assets/' + answer.engName + '.jpg';
+                answer.audio = url + 'assets/' + answer.engName + '.mp3';
                 answer.tag = '#' + answer.engName;
                 answer.id = index;
                 answer.show = this.voc === answer.tag ? true : false;
+                answer.engName = answer.engName[0].toUpperCase()+
+                                  answer.engName.slice(1);
                 this.answers.push(answer);
               }
             })
