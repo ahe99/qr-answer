@@ -157,6 +157,7 @@
             this.cam = true;
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview'),mirror:false });
             scanner.addListener('scan', function (content) {
+              alert(content);
               redirect(content);
             });
             Instascan.Camera.getCameras().then(function (cameras) {
