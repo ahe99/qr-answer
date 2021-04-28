@@ -161,7 +161,7 @@
             });
             Instascan.Camera.getCameras().then(function (cameras) {
               if (cameras.length > 0) {
-                scanner.start(cameras[0]);
+                scanner.start(cameras[1]);
               } else {
                 console.error('No cameras found.');
               }
@@ -171,11 +171,12 @@
           },
           redirect(c){
             window.location.replace(c);
+          },
+          backAns() {
+            this.cam = false;
           }
         },
-        backAns() {
-            this.cam = false;
-        },
+       
         created: function(){
           this.voc = location.hash;
           this.getAns();
