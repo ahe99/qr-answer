@@ -135,8 +135,8 @@
             .then(response => {
               let answers = response.data.answers;
               for([index, answer] of answers.entries() ){
-                answer.image = url + 'assets/' + answer.engName + '.jpg';
-                answer.audio = url + 'assets/' + answer.engName + '.mp3';
+                answer.image = url + 'assets/voc/' + answer.engName + '.jpg';
+                answer.audio = url + 'assets/voc/' + answer.engName + '.mp3';
                 answer.tag = '#' + answer.engName;
                 answer.id = index;
                 answer.show = this.voc === answer.tag ? true : false;
