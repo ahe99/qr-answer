@@ -30,7 +30,7 @@
       .start{
         position: fixed;
         background-color: rgb(214, 150, 105);
-        z-index: 10;
+        z-index: 20;
       }
       div .start:hover{
         animation-name: change;
@@ -62,7 +62,7 @@
         color: royalblue;
         border:2px royalblue solid;
         text-decoration: none;
-        font-size: medium;
+        font-size: large;
       }
       .campage{
         z-index: 10;
@@ -70,7 +70,7 @@
         background-color: rgb(214, 150, 105);
       }
       video{
-        z-index: 11;
+        max-height: 50vh;
       }
   </style>
   </head>
@@ -155,7 +155,7 @@
           },
           toScan(){
             this.cam = true;
-            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+            let scanner = new Instascan.Scanner({ video: document.getElementById('preview'),mirror:false });
             scanner.addListener('scan', function (content) {
               redirect(content);
             });
@@ -176,7 +176,6 @@
             this.cam = false;
           }
         },
-       
         created: function(){
           this.voc = location.hash;
           this.getAns();
