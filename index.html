@@ -69,7 +69,9 @@
         position: fixed;
         background-color: rgb(214, 150, 105);
       }
-      
+      video{
+        z-index: 11;
+      }
   </style>
   </head>
   <body>
@@ -88,6 +90,7 @@
 
       <div class="ans campage" v-if="cam">
         <video id="preview" autoplay="autoplay"></video>
+        <a class="openCam" href="#" @click="redirect(window.location)">取消掃描</a>
       </div>
 
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
@@ -169,8 +172,8 @@
               console.error(e);
             });
           },
-          redirect(content){
-            window.location.replace(content);
+          redirect(c){
+            window.location.replace(c);
           }
         },
         created: function(){
