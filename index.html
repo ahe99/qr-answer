@@ -13,17 +13,16 @@
           margin:0px;
           padding: 0px;
           font-family: 'Noto Sans TC', sans-serif;
-          background-color: rgb(192, 224, 133);
       }
       body{
-          overflow-y: scroll;
-          overflow-x: hidden;
+          overflow: hidden;
       }
       .ans{
           width:100vw;
           height: 85vh;
           padding-top: 15vh;
           text-align: center;
+          background-color: rgb(192, 224, 133);
       }
       .btn{
         display: none;
@@ -33,10 +32,19 @@
         background-color: rgb(214, 150, 105);
         z-index: 10;
       }
-      .start *{
-        background-color: rgb(214, 150, 105);
+      div .start:hover{
+        animation-name: change;
+        animation-duration:  0.2s;
+        animation-fill-mode: forwards;
       }
-      
+      @keyframes change{
+        from{
+          background-color: rgb(214, 150, 105);
+        }
+        to{
+          background-color: rgb(192, 224, 133);
+        }
+      }
       img{
         margin:auto;
         max-width: 70vw;
@@ -50,17 +58,18 @@
       p{
         font-size: 150%;
       }
-      a .scan{
-        font-size: small;
+      .openCam{
+        color: tomato;
+        border:2px tomato solid;
+        text-decoration: none;
+        font-size: medium;
       }
-      .scanpage{
-        top:0;
-        width: 100vw;
-        height: 100vh;
+      .campage{
         z-index: 10;
         position: fixed;
         background-color: rgb(214, 150, 105);
       }
+      
   </style>
   </head>
   <body>
@@ -76,9 +85,13 @@
         <br>
         <img src="assets/click.gif" alt="">
       </div>
-    
+
+      <div class="ans campage" v-if="cam">
+        <video id="preview"></video>
+      </div>
+
       <div class="ans" :ref="answer.engName" :id="answer.engName" 
-          v-for="(answer, index) in answers" :key="index" >
+          v-for="(answer, index) in answers" v-if="answer.show" :key="index" >
           <hr>
           <br>
           <h1 class="anstitle">{{answer.name + " "+ answer.engName}}</h1>
@@ -93,12 +106,10 @@
           </audio>
           <br>
           <hr>
-          <a class="scan" href="#javascript" @click="toScan()">開啟掃描</a>
+          <a class="openCam" href="#" @click="toScan()">開啟掃描</a>
       </div>
 
-      <div class="scanpage" v-if="scan">
-        <video id="preview"></video>
-      </div>
+      
       
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
@@ -110,7 +121,8 @@
         el: "#QRans",
         data: {
           start: true,
-          scan: false,
+          cam: false,
+          voc: "",
           answers:[]
         },
         methods: {
@@ -125,8 +137,10 @@
                 answer.audio = url + 'assets/' + answer.audio;
                 answer.tag = '#' + answer.engName;
                 answer.id = index;
+                answer.show = this.voc === answer.tag ? true : false;
                 this.answers.push(answer);
               }
+              console.log(this.voc);
             })
             .catch(err => {
               console.log(err);
@@ -134,12 +148,12 @@
             });
           },
           toAns() {
-            this.start = false;//document.querySelector(".start").style.display="none";
-            document.querySelector(location.hash).scrollIntoView();
+            setTimeout( () =>{
+                this.start = false;
+              } ,100 );
           },
           toScan(){
-            this.scan = true;
-            
+            this.cam = true;
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
             scanner.addListener('scan', function (content) {
               console.log(content);
@@ -154,17 +168,16 @@
             }).catch(function (e) {
               console.error(e);
             });
-            this.scan = false;
           },
           redirect(content){
             window.location.replace(content);
           }
         },
         created: function(){
+          this.voc = location.hash;
           this.getAns();
         },
-        mounted: function(){
-        },
+        mounted: function(){},
       });
       </script>
   </html>
