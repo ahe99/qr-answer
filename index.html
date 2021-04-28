@@ -50,13 +50,20 @@
       p{
         font-size: 150%;
       }
-      
+      a .scan{
+        font-size: small;
+      }
+      .scanpage{
+        width: 100vw;
+        height: 100vh;
 
+        position: fixed;
+      }
   </style>
   </head>
   <body>
     <div id="QRans" class="QRans container">
-      <div class="ans start" @click="toAns()">
+      <div class="ans start" @click="toAns()" v-if="start">
         <hr>
         <br>  
         <h1 class="anstitle">答案是？</h1>
@@ -84,15 +91,24 @@
           </audio>
           <br>
           <hr>
+          <a class="scan" href="#javascript" @click="toScan()">開啟掃描</a>
       </div>
+
+      <div class="scanpage" v-if="scan">
+        <video id="preview"></video>
+      </div>
+      
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     
     <script type="text/javascript">
       const QRans = new Vue({
         el: "#QRans",
         data: {
+          start: true,
+          scan: false,
           answers:[]
         },
         methods: {
@@ -116,9 +132,30 @@
             });
           },
           toAns() {
-            document.querySelector(".start").style.display="none";
+            this.start = false;//document.querySelector(".start").style.display="none";
             document.querySelector(location.hash).scrollIntoView();
           },
+          toScan(){
+            this.scan = true;
+            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+            scanner.addListener('scan', function (content) {
+              console.log(content);
+              redirect(content);
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+              if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+              } else {
+                console.error('No cameras found.');
+              }
+            }).catch(function (e) {
+              console.error(e);
+            });
+            this.scan = false;
+          },
+          redirect(content){
+            window.location.replace(content);
+          }
         },
         created: function(){
           this.getAns();
