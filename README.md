@@ -2,6 +2,9 @@
 
 課程專案
 
+![1.png](1.png)
+![2.png](2.png)
+
 掃描(紙本)QR code會進入英文單字介紹頁面, 主要設計給手機端
 
 Vue單頁模板、基於webRTC的instascan.js在前端完成掃描QR code
